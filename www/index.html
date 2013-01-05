@@ -31,18 +31,42 @@
           <h1>Oplop</h1>
         </header>
         
+        <div class="error">Passwords do not match! Please try again!</div>
         <input class="nickname" type="text" readonly placeholder="Enter a nickname" />
         <input class="password" type="password" placeholder="Enter master password" />
         <input class="checkPassword" type="password" placeholder="Verify password" />
         <button class="generate">Generate Password</button>
       </x-view>
+
+      <x-view class="generated">
+        <header>
+          <h1>Oplop</h1>
+        </header>
+
+        <div class="display">
+            <div class="nickname-title">Nickname</div>
+            <div class="nickname-display"></div>
+        </div>
+        <div class="display">
+            <div class="password-title">Generated Password</div>
+            <div class="password-display"></div>
+        </div>
+        <button class="start-over">Start Over</button>
+      </x-view>
+
     </x-view>
 
     <!-- Using require.js, a module system for javascript, include the
          js files. This loads "main.js", which in turn can load other
          files, all handled by require.js:
          http://requirejs.org/docs/api.html#jsfiles -->
-    <script type="text/javascript" src="js/x-tag.js"></script>
+    <script type="text/javascript" src="js/lib/x-tag.js"></script>
+
+    <!-- FIXME I'm not using require.js here because I had trouble trying to
+         convert these things. Should be fixed later. -->
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/oplop.js"></script>
+
     <script type="text/javascript"
             data-main="js/init.js"
             src="js/lib/require.js"></script>

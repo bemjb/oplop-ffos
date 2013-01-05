@@ -23,7 +23,7 @@ define(function(require) {
     $('button.add', list).click(function() {
         passwordEntry.open(null, 'slideLeft');
     });
-    
+
     // Password Entry view
 
     var passwordEntry = $('.password-entry').get(0);
@@ -41,5 +41,33 @@ define(function(require) {
             $('.nickname', this).val('');
             $('.nickname', this).removeAttr('readonly');
         }
+    };
+
+    $('button.generate', passwordEntry).click(function() {
+        var el = $(passwordEntry),
+            nickname = el.find('.nickname').val(),
+            password = el.find('.password').val(),
+            checkPassword = el.find('.checkPassword').val(),
+            model = passwordEntry.model,
+            error = el.find('.error');
+
+        if (!model && password != checkPassword) {
+            error.show();
+        }
+        else {
+            error.hide();
+            if (!model) {
+                list.add({ 'nickname': nickname });
+                model = list.collection.last();
+            }
+            
+            model.set({ 'password': oplop.accountPassword(nickname, password) });
+            generated.open(model, 'slideLeft');
+        }
+    });
+    var generated = $('.generated').get(0);
+    generated.render = function(item) {
+        $('.nickname-display').text(item.get('nickname'));
+        $('.password-display').text(item.get('password'));
     };
 });
