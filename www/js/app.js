@@ -28,6 +28,7 @@ define(function(require) {
 
     var passwordEntry = $('.password-entry').get(0);
     passwordEntry.render = function(item) {
+        $('.error', this).hide();
         if (item) {
             $('.checkPassword', this).hide();
             $('.password', this).val(item.get('password'));
