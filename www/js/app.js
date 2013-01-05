@@ -17,8 +17,8 @@ define(function(require) {
 
     var list = $('.list').get(0);
     list.titleField = "nickname";
-    list.add({ nickname: "facebook.com" });
     list.nextView = '.password-entry';
+    list.add({ nickname: "facebook.com" });
 
     $('button.add', list).click(function() {
         passwordEntry.open(null, 'slideLeft');
