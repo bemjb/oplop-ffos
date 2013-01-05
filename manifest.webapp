@@ -1,0 +1,20 @@
+{
+  "version": "0.1",
+  "name": "Oplop",
+  "description": "Oplop password generator",
+  "launch_path": "/",
+  "icons": {
+    "16": "/img/icons/icon016.png",
+    "48": "/img/icons/icon048.png",
+    "128": "/img/icons/icon128.png"
+  },
+  "developer": {
+    "name": "Bem Jones-Bey",
+    "url": "http://oplop.pyen.com"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "locales": {
+  },
+  "default_locale": "en"
+}
