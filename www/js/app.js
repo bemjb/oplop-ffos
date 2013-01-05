@@ -18,9 +18,9 @@ define(function(require) {
     var list = $('.list').get(0);
     list.titleField = "nickname";
     list.nextView = '.password-entry';
-    list.add({ nickname: "facebook.com" });
 
     $('button.add', list).click(function() {
+        passwordEntry.reset();
         passwordEntry.open(null, 'slideLeft');
     });
 
@@ -35,12 +35,15 @@ define(function(require) {
             $('.nickname', this).attr('readonly', true);
         }
         else {
-            $('.checkPassword', this).show();
-            $('.checkPassword', this).val('');
-            $('.password', this).val('');
-            $('.nickname', this).val('');
-            $('.nickname', this).removeAttr('readonly');
+            this.reset();
         }
+    };
+    passwordEntry.reset = function () {
+        $('.checkPassword', this).show();
+        $('.checkPassword', this).val('');
+        $('.password', this).val('');
+        $('.nickname', this).val('');
+        $('.nickname', this).removeAttr('readonly');
     };
 
     $('button.generate', passwordEntry).click(function() {
@@ -70,4 +73,10 @@ define(function(require) {
         $('.nickname-display').text(item.get('nickname'));
         $('.password-display').text(item.get('password'));
     };
+
+    $('button.start-over', generated).click(function () {
+        passwordEntry.reset();
+        generated.close('slideRightOut');
+        passwordEntry.close('slideRightOut');
+    });
 });
