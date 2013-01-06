@@ -31,12 +31,43 @@ x-view h1 {
 
 x-view.password-entry input {
     margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    font-size: 1.5rem;
+    display: block;
+}
+
+x-view.password-entry button {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    font-size: 1.5rem;
+    display: block;
 }
 
 x-view.password-entry .error {
     display: none;
     color: red;
     font-weight: bold;
+}
+
+x-view.generated button {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    font-size: 1.5rem;
+    display: block;
+}
+
+x-view.generated .nickname-display {
+    font-size: 1.5rem;
+}
+
+x-view.generated .password-display {
+    font-size: 1.5rem;
 }
 
 x-listview.list li:before {
