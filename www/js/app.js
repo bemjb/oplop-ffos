@@ -13,11 +13,15 @@ define(function(require) {
 
     require('layouts/layouts');
 
+    require('backbone.localStorage');
+
     // Main list view
 
     var list = $('.list').get(0);
     list.titleField = "nickname";
     list.nextView = '.password-entry';
+    list.collection.localStorage = new Backbone.LocalStorage("nicknames");
+    list.collection.fetch();
 
     $('button.add', list).click(function() {
         passwordEntry.reset();
@@ -63,6 +67,7 @@ define(function(require) {
             if (!model) {
                 list.add({ 'nickname': nickname });
                 model = list.collection.last();
+                model.save();
             }
             
             model.set({ 'password': oplop.accountPassword(nickname, password) });
